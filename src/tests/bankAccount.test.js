@@ -2,9 +2,11 @@ const BankAccount = require('../bankAccount');
 
 describe('#BankAccount', () => {
 	let bankAccount;
+	let mockDate;
 
 	beforeEach(() => {
 		bankAccount = new BankAccount();
+		mockDate = { date: '25/04/2022' };
 	});
 
 	test('starts with a balance of £0', () => {
@@ -24,11 +26,22 @@ describe('#BankAccount', () => {
 	});
 
 	test('saves a transaction with the amount and date when #depositAmount', () => {
-		const mockDate = { date: '25/04/2022' };
 		bankAccount.depositAmount(600);
-		expect(bankAccount.transactions).toEqual([{
-			amount: 600,
-			date: mockDate.date,
-		}]);
+		expect(bankAccount.transactions).toEqual([
+			{
+				amount: 600,
+				date: mockDate.date,
+			},
+		]);
+	});
+
+	test('saves a transaction with the amount and date when #withdrawAmount', () => {
+		bankAccount.withdrawAmount(200);
+		expect(bankAccount.transactions).toEqual([
+			{
+				amount: 200,
+				date: mockDate.date,
+			},
+		]);
 	});
 });

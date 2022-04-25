@@ -14,8 +14,9 @@ class BankAccount {
 		this.transactions.push({ amount: amount, date: date })
 	}
 
-	withdrawAmount(amount) {
+	withdrawAmount(amount, date=moment().format('DD/MM/YYYY')) {
 		this.balance -= amount;
+		this.transactions.push({ amount: amount, date: date });
 	}
 }
 
