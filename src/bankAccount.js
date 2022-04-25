@@ -1,6 +1,6 @@
 class BankAccount {
-	depositAmount() {
-		return 500;
+	depositAmount(amount) {
+		return amount;
 	}
 }
 

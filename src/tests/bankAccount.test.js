@@ -4,7 +4,7 @@ describe('#BankAccount', () => {
 	const bankAccount = new BankAccount();
 
 	test('can deposit money', () => {
-		const amount = 500;
-		expect(bankAccount.depositAmount()).toBe(amount);
+		const amount = 1000;
+		expect(bankAccount.depositAmount(amount)).toBe(amount);
 	});
 });
