@@ -16,4 +16,10 @@ describe('#BankAccount', () => {
 		bankAccount.depositAmount(amount);
 		expect(bankAccount.getBalance()).toBe(amount);
 	});
+
+	test('can withdraw an amount of money', () => {
+    bankAccount.depositAmount(1500);
+		bankAccount.withdrawAmount(500);
+		expect(bankAccount.getBalance()).toBe(1000);
+	});
 });
