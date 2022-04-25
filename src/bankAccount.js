@@ -8,7 +8,7 @@ class BankAccount {
 	}
 
 	depositAmount(amount) {
-		return amount;
+		this.balance += amount;
 	}
 }
 
