@@ -45,10 +45,17 @@ describe('#BankAccount', () => {
 		]);
 	});
 
-	test('throws an error when #depositAmount is less than or equal to £0', () => {
+	test('throws an error when #depositAmount is less than or equal to zero', () => {
 		const errorMessage =
 			'It looks like you are trying to deposit an invalid amount. Please try again with a valid amount.';
 
 		expect(() => bankAccount.depositAmount(0)).toThrow(errorMessage);
+	});	
+  
+  test('throws an error when #depositAmount is a string', () => {
+		const errorMessage =
+			'It looks like you are trying to deposit an invalid amount. Please try again with a valid amount.';
+
+		expect(() => bankAccount.depositAmount('100')).toThrow(errorMessage);
 	});
 });

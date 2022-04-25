@@ -10,10 +10,11 @@ class BankAccount {
 	}
 
 	depositAmount(amount, date = moment().format('DD/MM/YYYY')) {
-		if (amount <= 0)
-			throw new Error(
-				'It looks like you are trying to deposit an invalid amount. Please try again with a valid amount.'
-			);
+		const errorMessage =
+			'It looks like you are trying to deposit an invalid amount. Please try again with a valid amount.';
+
+		if (amount <= 0) throw new Error(errorMessage);
+		else if (typeof amount === 'string') throw new Error(errorMessage);
 		else {
 			this.balance += amount;
 			this.transactions.push({ amount: amount, date: date });
