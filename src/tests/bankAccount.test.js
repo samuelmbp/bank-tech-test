@@ -18,8 +18,17 @@ describe('#BankAccount', () => {
 	});
 
 	test('can withdraw an amount of money', () => {
-    bankAccount.depositAmount(1500);
+		bankAccount.depositAmount(1500);
 		bankAccount.withdrawAmount(500);
 		expect(bankAccount.getBalance()).toBe(1000);
+	});
+
+	test('saves a transaction with the amount and date when #depositAmount', () => {
+		const mockDate = { date: '25/04/2022' };
+		bankAccount.depositAmount(600);
+		expect(bankAccount.transactions).toEqual([{
+			amount: 600,
+			date: mockDate.date,
+		}]);
 	});
 });
