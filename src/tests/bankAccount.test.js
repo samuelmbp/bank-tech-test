@@ -26,23 +26,12 @@ describe('#BankAccount', () => {
 		expect(bankAccount.getBalance()).toBe(1000);
 	});
 
-	test('saves a transaction with the amount and date when #depositAmount', () => {
+	test('saves a transaction when the customer deposits or withdraws an amount', () => {
 		bankAccount.depositAmount(600);
+		bankAccount.withdrawAmount(150);
 		expect(bankAccount.transactions).toEqual([
-			{
-				amount: 600,
-				date: mockDate.date,
-			},
-		]);
-	});
-
-	test('saves a transaction with the amount and date when #withdrawAmount', () => {
-		bankAccount.withdrawAmount(200);
-		expect(bankAccount.transactions).toEqual([
-			{
-				amount: 200,
-				date: mockDate.date,
-			},
+			{ date: mockDate.date, amount: 600, transactionType: 'credit', balance: 600 },
+			{ date: mockDate.date, amount: 150, transactionType: 'debit', balance: 450 },
 		]);
 	});
 
