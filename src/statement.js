@@ -1,6 +1,9 @@
 class Statement {
-	printTransactions() {
-		return 'date  || credit || debit  || balance';
+	printStatement(transactions) {
+		let headerStatement = 'date|| credit	|| debit	|| balance';
+
+
+	return headerStatement
 	}
 }
 
