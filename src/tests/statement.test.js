@@ -7,11 +7,11 @@ describe('#Statement', () => {
 		statement = new Statement();
 	});
 
-	// test('returns the header of the statement when empty', () => {
-	// 	expect(statement.printStatement()).toEqual(
-	// 		'date || credit || debit || balance'
-	// 	);
-	// });
+	test('returns the header of the statement when empty', () => {
+		expect(statement.printStatement()).toEqual(
+			'date || credit || debit || balance'
+		);
+	});
 
 	test('returns a bank statements with all the transactions', () => {
 		const transactions = [
