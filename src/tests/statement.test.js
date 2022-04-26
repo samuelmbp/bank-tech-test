@@ -2,7 +2,6 @@ const Statement = require('../statement');
 
 describe('#Statement', () => {
 	let statement;
-
 	beforeEach(() => {
 		statement = new Statement();
 	});

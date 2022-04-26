@@ -1,5 +1,6 @@
 const moment = require('moment');
 const Statement = require('./statement');
+
 class BankAccount {
 	constructor(statement = new Statement()) {
 		this.balance = 0;
@@ -39,7 +40,6 @@ class BankAccount {
 	_errorMessage(amount) {
 		const message =
 			'It looks like you are trying to deposit an invalid amount. Please try again with a valid amount.';
-
 		if (amount <= 0 || typeof amount === 'string') throw new Error(message);
 	}
 

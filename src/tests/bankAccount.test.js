@@ -4,7 +4,6 @@ const BankAccount = require('../bankAccount');
 describe('#BankAccount', () => {
 	let bankAccount;
 	let mockDate;
-
 	beforeEach(() => {
 		bankAccount = new BankAccount();
 		mockDate = { date: moment().format('DD/MM/YYYY') };
@@ -15,9 +14,8 @@ describe('#BankAccount', () => {
 	});
 
 	test('can deposit an amount of money', () => {
-		const amount = 1000;
-		bankAccount.depositAmount(amount);
-		expect(bankAccount.getBalance()).toBe(amount);
+		bankAccount.depositAmount(1000);
+		expect(bankAccount.getBalance()).toBe(1000);
 	});
 
 	test('can withdraw an amount of money', () => {
