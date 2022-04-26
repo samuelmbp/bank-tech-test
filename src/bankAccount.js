@@ -12,7 +12,7 @@ class BankAccount {
 	}
 
 	depositAmount(amount, date = moment().format('DD/MM/YYYY')) {
-		this.errorMessage(amount);
+		this._errorMessage(amount);
 		this.balance += amount;
 		this.transactions.push({
 			amount: amount,
@@ -32,7 +32,11 @@ class BankAccount {
 		});
 	}
 
-	errorMessage(amount) {
+	bankStatement() {
+		return this.statement.printStatement(this.transactions);
+	}
+
+	_errorMessage(amount) {
 		const message =
 			'It looks like you are trying to deposit an invalid amount. Please try again with a valid amount.';
 
