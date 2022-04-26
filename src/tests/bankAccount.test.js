@@ -1,3 +1,4 @@
+const moment = require('moment');
 const BankAccount = require('../bankAccount');
 
 describe('#BankAccount', () => {
@@ -6,7 +7,7 @@ describe('#BankAccount', () => {
 
 	beforeEach(() => {
 		bankAccount = new BankAccount();
-		mockDate = { date: '25/04/2022' };
+		mockDate = { date: moment().format('DD/MM/YYYY') };
 	});
 
 	test('starts with a balance of £0', () => {
@@ -50,9 +51,9 @@ describe('#BankAccount', () => {
 			'It looks like you are trying to deposit an invalid amount. Please try again with a valid amount.';
 
 		expect(() => bankAccount.depositAmount(0)).toThrow(errorMessage);
-	});	
-  
-  test('throws an error when #depositAmount is a string', () => {
+	});
+
+	test('throws an error when #depositAmount is a string', () => {
 		const errorMessage =
 			'It looks like you are trying to deposit an invalid amount. Please try again with a valid amount.';
 
