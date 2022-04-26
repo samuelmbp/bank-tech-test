@@ -1,8 +1,10 @@
 const moment = require('moment');
+const Statement = require('./statement');
 class BankAccount {
-	constructor() {
+	constructor(statement = new Statement()) {
 		this.balance = 0;
 		this.transactions = [];
+		this.statement = statement;
 	}
 
 	getBalance() {
@@ -12,12 +14,22 @@ class BankAccount {
 	depositAmount(amount, date = moment().format('DD/MM/YYYY')) {
 		this.errorMessage(amount);
 		this.balance += amount;
-		this.transactions.push({ amount: amount, date: date, transactionType: 'credit', balance: this.balance });
+		this.transactions.push({
+			amount: amount,
+			date: date,
+			type: 'credit',
+			balance: this.balance,
+		});
 	}
 
 	withdrawAmount(amount, date = moment().format('DD/MM/YYYY')) {
 		this.balance -= amount;
-		this.transactions.push({ amount: amount, date: date, transactionType: 'debit', balance: this.balance });
+		this.transactions.push({
+			amount: amount,
+			date: date,
+			type: 'debit',
+			balance: this.balance,
+		});
 	}
 
 	errorMessage(amount) {

@@ -30,8 +30,8 @@ describe('#BankAccount', () => {
 		bankAccount.depositAmount(600);
 		bankAccount.withdrawAmount(150);
 		expect(bankAccount.transactions).toEqual([
-			{ date: mockDate.date, amount: 600, transactionType: 'credit', balance: 600 },
-			{ date: mockDate.date, amount: 150, transactionType: 'debit', balance: 450 },
+			{ date: mockDate.date, amount: 600, type: 'credit', balance: 600 },
+			{ date: mockDate.date, amount: 150, type: 'debit', balance: 450 },
 		]);
 	});
 
