@@ -35,6 +35,14 @@ describe('#BankAccount', () => {
 		]);
 	});
 
+	test('can print the statement with the transactions', () => {
+		bankAccount.depositAmount(1600);
+		bankAccount.withdrawAmount(500);
+		expect(bankAccount.bankStatement()).toBe(
+			`date || credit || debit || balance\n${mockDate.date} || || 500 || 1100\n${mockDate.date} || 1600 || || 1600`
+		);
+	});
+
 	test('throws an error when #depositAmount is less than or equal to zero', () => {
 		const errorMessage =
 			'It looks like you are trying to deposit an invalid amount. Please try again with a valid amount.';
