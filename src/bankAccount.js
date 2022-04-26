@@ -11,22 +11,22 @@ class BankAccount {
 		return this.balance;
 	}
 
-	depositAmount(amount, date = moment().format('DD/MM/YYYY')) {
+	depositAmount(amount) {
 		this._errorMessage(amount);
 		this.balance += amount;
 		this.transactions.push({
 			amount: amount,
-			date: date,
+			date: this._getCurrentDate(),
 			type: 'credit',
 			balance: this.balance,
 		});
 	}
 
-	withdrawAmount(amount, date = moment().format('DD/MM/YYYY')) {
+	withdrawAmount(amount) {
 		this.balance -= amount;
 		this.transactions.push({
 			amount: amount,
-			date: date,
+			date: this._getCurrentDate(),
 			type: 'debit',
 			balance: this.balance,
 		});
@@ -41,6 +41,10 @@ class BankAccount {
 			'It looks like you are trying to deposit an invalid amount. Please try again with a valid amount.';
 
 		if (amount <= 0 || typeof amount === 'string') throw new Error(message);
+	}
+
+	_getCurrentDate() {
+		return moment().format('DD/MM/YYYY');
 	}
 }
 
