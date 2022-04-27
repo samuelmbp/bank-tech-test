@@ -69,7 +69,6 @@ Ran all test suites.
 - - - -
 
 ## Technologies used
-
 - Javascript
 - NodeJs
 - Jest (Includes files coverage)
