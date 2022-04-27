@@ -67,3 +67,11 @@ Time:        1.5 s, estimated 2 s
 Ran all test suites.
 ```
 - - - -
+
+## Technologies used
+
+- Javascript
+- NodeJs
+- Jest (Includes files coverage)
+- Git
+- Moment
