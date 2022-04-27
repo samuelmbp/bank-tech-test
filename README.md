@@ -68,6 +68,27 @@ Ran all test suites.
 ```
 - - - -
 
+## Overall Approach
+The program is made up of two classes
+
+1. BankAccount Class
+   - Handles the logic for deposits and the withdrawals
+2. Statement Class
+   - Handles the logic for printing out a full history of all the transactions
+
+### Approach when writing the code:
+- TDD every single class and it's methods
+- Used single responsibility principle
+- Used encapsulation for all the related code
+- Used abstraction by making some of the methods private in order to expose only the necessary code the users.
+- Thought about edge cases e.g :  
+  - user deposits an amount that is o or less
+  - user enters a string instead of an integer
+- Installed the relevant packages
+- Cleaned up the code for readability and review
+- Completed Self-assessment form
+
+
 ## Technologies used
 - Javascript
 - NodeJs
